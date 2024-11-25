@@ -1,17 +1,0 @@
-
-A
-java:S1068"+Remove this unused "orderId" private field.(ñÔ»û
-H
-java:S1068"-Remove this unused "orderTime" private field.(Ë¢šÜüÿÿÿÿ
-@
-java:S1068"*Remove this unused "amount" private field.(ü‘Ä
-G
-java:S1068",Remove this unused "currency" private field.(´£±òıÿÿÿÿ
-E
-java:S1068"*Remove this unused "status" private field.(¦­œ˜ÿÿÿÿÿ
-C
-java:S1068"(Remove this unused "type" private field.(–î†ûÿÿÿÿ
-@
-java:S1068"*Remove this unused "remark" private field.(µ»Ûã
-K
-java:S1068"0Remove this unused "originalData" private field.(ñÒ½ïûÿÿÿÿ
