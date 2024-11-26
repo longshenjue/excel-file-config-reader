@@ -111,7 +111,7 @@ public class ExcelReader {
 
                     @Override
                     public void invoke(Map<Integer, String> data, AnalysisContext context) {
-                        log.info("读取 data：{}", data);
+                        log.debug("读取 data：{}", data);
                         ExcelData excelData = new ExcelData();
                         Map<String, Object> originItem = new HashMap<>();
 
@@ -135,6 +135,7 @@ public class ExcelReader {
                             dataMapper.setFieldValueByFieldName(column, cellValue, excelData);
                         });
 
+                        log.debug("解析后数据：{}", excelData);
                         dataList.add(excelData);
                         if (saveOriginData) {
                             originData.add(originItem);
