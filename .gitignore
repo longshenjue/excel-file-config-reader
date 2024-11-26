@@ -6,7 +6,7 @@ target/
 *.class
 
 # IDE
-.idea/
+/.idea/
 *.iml
 .project
 .classpath
@@ -17,3 +17,4 @@ target/
 
 # OS
 .DS_Store
+
