@@ -5,9 +5,13 @@
 ## 特性
 
 - 支持Excel文件格式：XLSX、CSV
-- 支持自定义列映射配置
-- 支持数据格式化处理
-- 支持原始数据保存
+- 支持自定义列映射配置： 详见 OrderColumnRuleTypeEm 
+-     ORDER_STATUS_MAP("ORDER_STATUS_MAP", OrderColumnTypeEm.ORDER_STATUS.getValue(), "状态-映射配置值"),
+- 支持数据格式化处理：  详见 OrderColumnStringTypeEm
+-     DEL_PRE("DEL_PRE", "删除前置的x个字符"),
+-     DEL_AFTER("DEL_AFTER", "删除后置的x个字符"),
+-     DEL_CHAR("DEL_CHAR", "删除某个特定字符")
+- 支持原始数据保存: saveOriginalData
 - 基于EasyExcel，性能优异
 
 ## 快速开始
@@ -41,7 +45,7 @@
 
         ColumnConfig config = new ColumnConfig();
         config.setColumnConfig(columnConfig);
-        config.setSuffix("xlsx");
+        config.setSuffix(".xlsx");// 注意这里需要加一个 .
         config.setHeadNumber(1);
 
         // 获取资源的 URL

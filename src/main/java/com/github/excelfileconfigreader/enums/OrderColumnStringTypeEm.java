@@ -19,8 +19,7 @@ public enum OrderColumnStringTypeEm {
     DIVIDE_NUMBER("DIVIDE_NUMBER", "除以特定值"),
     ABS_VALUE("ABS_VALUE", "转为绝对值"),
     ADD_CHAR_PRE("ADD_CHAR_PRE", "前置添加字符"),
-    ADD_CHAR_AFTER("ADD_CHAR_AFTER", "后置添加字符"),
-    XENDIT_TIME("XENDIT_TIME", "XENDIT 时间特定格式化：把英文月份替换成数字");
+    ADD_CHAR_AFTER("ADD_CHAR_AFTER", "后置添加字符");
 
     private final String value;
 
