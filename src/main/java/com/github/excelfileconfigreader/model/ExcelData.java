@@ -1,4 +1,4 @@
-package com.github.excelreader.model;
+package com.github.excelfileconfigreader.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

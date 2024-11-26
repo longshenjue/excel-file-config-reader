@@ -1,5 +1,8 @@
-package com.github.excelreader.enums;
+package com.github.excelfileconfigreader.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ColumnTypeEnum {
     STRING("STRING", "字符串类型"),
     NUMBER("NUMBER", "数字类型"),
@@ -19,11 +22,4 @@ public enum ColumnTypeEnum {
         this.desc = desc;
     }
 
-    public String getValue() {
-        return value;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
 }

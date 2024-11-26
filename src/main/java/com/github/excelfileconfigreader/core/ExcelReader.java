@@ -1,4 +1,4 @@
-package com.github.excelreader.core;
+package com.github.excelfileconfigreader.core;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
@@ -10,10 +10,10 @@ import com.alibaba.excel.event.AnalysisEventListener;
 import com.alibaba.excel.read.metadata.ReadSheet;
 import com.alibaba.excel.read.metadata.holder.csv.CsvReadWorkbookHolder;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.github.excelreader.config.ColumnConfig;
-import com.github.excelreader.config.ColumnConfigDetail;
-import com.github.excelreader.handler.ColumnFormatHandler;
-import com.github.excelreader.model.ExcelData;
+import com.github.excelfileconfigreader.config.ColumnConfig;
+import com.github.excelfileconfigreader.config.ColumnConfigDetail;
+import com.github.excelfileconfigreader.handler.ColumnFormatHandler;
+import com.github.excelfileconfigreader.model.ExcelData;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.InputStream;
@@ -65,7 +65,7 @@ public class ExcelReader {
 
     private Map<String, ColumnConfigDetail> parseColumnMapping(String columnConfig) {
         Map<String, ColumnConfigDetail> columnMapping = new HashMap<>();
-        Map<String, JSONObject> bankColumnStringMap = JSONUtil.toBean(columnConfig, Map.class);
+        Map<String, JSONObject> bankColumnStringMap = parseBankColumnConfig(columnConfig);
 
         bankColumnStringMap.forEach((k, v) -> {
             ColumnConfigDetail bean = BeanUtil.toBean(v, ColumnConfigDetail.class);
@@ -111,6 +111,7 @@ public class ExcelReader {
 
                     @Override
                     public void invoke(Map<Integer, String> data, AnalysisContext context) {
+                        log.info("读取 data：{}", data);
                         ExcelData excelData = new ExcelData();
                         Map<String, Object> originItem = new HashMap<>();
 
@@ -156,5 +157,18 @@ public class ExcelReader {
             char separatorChar = StrUtil.isNotEmpty(separator) ? separator.charAt(0) : ',';
             csvReadWorkbookHolder.setCsvFormat(csvReadWorkbookHolder.getCsvFormat().withDelimiter(separatorChar));
         }
+    }
+
+    /**
+     * 解析银行配置的JSON字符串到Map
+     * 由于配置结构固定为Map<String, JSONObject>，这里使用强制类型转换是安全的
+     */
+    @SuppressWarnings("unchecked")
+    private Map<String, JSONObject> parseBankColumnConfig(String columnConfig) {
+        if (!JSONUtil.isTypeJSONObject(columnConfig)) {
+            log.warn("Invalid JSON format in bank column config: {}", columnConfig);
+            return new HashMap<>();
+        }
+        return JSONUtil.parseObj(columnConfig).toBean(Map.class);
     }
 } 
