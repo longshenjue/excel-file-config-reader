@@ -2,7 +2,7 @@ package com.github.excelfileconfigreader.handler;
 
 import cn.hutool.core.util.StrUtil;
 import com.github.excelfileconfigreader.config.ColumnConfigDetail;
-import com.github.excelfileconfigreader.enums.ColumnTypeEnum;
+import com.github.excelfileconfigreader.enums.OrderColumnTypeEm;
 import com.github.excelfileconfigreader.util.ColumnStringUtil;
 import lombok.extern.slf4j.Slf4j;
 
@@ -47,7 +47,7 @@ public class DefaultColumnFormatHandler implements ColumnFormatHandler {
     }
 
     private void columnRuleProcess() {
-        if (StrUtil.isNotEmpty(this.type) && StrUtil.isNotEmpty(this.detail.getRuleType()) && !Objects.equals(this.type, ColumnTypeEnum.STRING.getValue())) {
+        if (StrUtil.isNotEmpty(this.type) && StrUtil.isNotEmpty(this.detail.getRuleType()) && !Objects.equals(this.type, OrderColumnTypeEm.ORDER_STRING.getValue())) {
             this.cellValue = ColumnStringUtil.formatRuleString(this.cellValue, this.detail);
         }
     }

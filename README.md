@@ -4,12 +4,18 @@
 
 ## 特性
 
-- 支持Excel文件格式：XLS、XLSX、CSV
+- 支持Excel文件格式：XLSX、CSV
 - 支持自定义列映射配置
 - 支持数据格式化处理
 - 支持原始数据保存
 - 基于EasyExcel，性能优异
 
 ## 快速开始
+- 使用方法： 参考 ExcelReaderTest
 
 ### Maven依赖
+- easyexcel
+- hutool
+- lombok
+- slf4j
+- junit
